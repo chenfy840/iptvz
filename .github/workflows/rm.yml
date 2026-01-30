@@ -1,28 +1,37 @@
 name: rm
 
 on:
-  workflow_dispatch:
+  workflow_dispatch: # 手动触发
 
 jobs:
   run-script:
     runs-on: ubuntu-latest
+    # 必须授予写入权限，否则 GITHUB_TOKEN 无法提交代码
+    permissions:
+      contents: write
 
     steps:
       - name: Checkout Repository
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4 # 建议使用最新的 v4 版本
         with:
           fetch-depth: 0   
-      
-      - name: 
-        run: |
-          cd $GITHUB_WORKSPACE
-          rm -rf *_config.txt
 
-      - name: 更新组播源
+      - name: 删除配置文件
         run: |
-          git pull
+          # 使用 -f 强制删除，即使文件不存在也不会报错导致工作流中断
+          rm -f *_config.txt
+
+      - name: 更新仓库
+        run: |
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action"
+          
           git add .
-          git commit -m "..."
-          git push
+          
+          # 检查是否有变动，避免因为没有东西可以 commit 而报错
+          if git diff --staged --quiet; then
+            echo "没有发现文件变动，跳过提交。"
+          else
+            git commit -m "自动清理配置记录"
+            git push
+          fi
