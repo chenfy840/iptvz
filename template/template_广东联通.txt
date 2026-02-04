@@ -20,6 +20,7 @@ CCTV-2财经,http://ipipip/udp/239.0.1.4:8084
 CCTV-3综艺,http://ipipip/udp/239.0.1.177:6037
 CCTV-4中文国际,http://ipipip/udp/239.0.1.180:6040
 CCTV-5体育,http://ipipip/udp/239.0.1.175:6035
+CCTV-5体育,http://ipipip/udp/239.0.1.102:4120
 CCTV-5+体育赛事,http://ipipip/udp/239.0.1.101:8004
 CCTV-6电影,http://ipipip/udp/239.0.1.176:6036
 CCTV-7国防军事,http://ipipip/udp/239.0.1.96:8104
@@ -73,4 +74,3 @@ CETV1,http://ipipip/udp/239.0.1.240:4120
 CETV2,http://ipipip/udp/239.0.1.210:4120
 CETV4,http://ipipip/udp/239.0.1.211:4121
 GCTN英语,http://ipipip/udp/239.0.1.76:8056
-IPTV5体育,http://ipipip/udp/239.0.1.102:4120
